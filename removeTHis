@@ -1,0 +1,18 @@
+
+rateImgs([])
+
+def rateImgs(images):
+    imgScores = {}
+    for img in images:
+        imgScores[img]=getSimilarCount(img,images)
+    
+    imgs = sorted(imgScores.items(),key=lambda x:x[1],reverse=True)
+    return imgs
+
+def getSimilarCount(img,images):
+    rate=0
+    images.remove(img)
+    for tmp in images: 
+        if img == tmp: #change here
+            rate+=1
+    return rate
